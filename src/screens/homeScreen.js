@@ -23,7 +23,9 @@ const HomeScreen = () => {
       ) : (
         <ForYouList listData={ForYouData} />
       )}
-      <CardComponent />
+      <View style={styles.shadow}>
+        <CardComponent />
+      </View>
     </View>
   );
 };
@@ -32,6 +34,17 @@ const styles = StyleSheet.create({
   container: {
     ...baseContainer,
     backgroundColor: colors.black,
+  },
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.43,
+    shadowRadius: 9.51,
+
+    elevation: 15,
   },
 });
 
