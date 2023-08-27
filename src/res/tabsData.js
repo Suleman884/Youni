@@ -46,11 +46,15 @@ export const ForYouData = [
 ];
 
 export const exploreData = [
-  {id: 1, title: 'The Art'},
-  {id: 2, title: 'Community'},
-  {id: 3, title: 'All'},
-  {id: 4, title: 'Body + Mind'},
-  {id: 5, title: 'Party'},
+  {id: 0, title: 'The Art'},
+  {id: 1, title: 'Community'},
+  {id: 2, title: 'Function'},
+  {id: 3, title: 'Body + Mind'},
+  {id: 4, title: 'All'},
+  {id: 5, title: 'Combine'},
+  {id: 6, title: 'Body + Mind'},
+  {id: 7, title: 'Party'},
+  {id: 8, title: 'Party time'},
 ];
 
 export const cardTags = [

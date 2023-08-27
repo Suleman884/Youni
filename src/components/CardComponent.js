@@ -32,7 +32,7 @@ const Profile = () => {
   );
 };
 
-const CardComponent = () => {
+const CardComponent = ({setIsLoading}) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
   return (
@@ -53,6 +53,7 @@ const CardComponent = () => {
         listData={cardTags}
         style={styles.list}
         itemStyle={styles.item}
+        setIsLoading={setIsLoading}
       />
       <View style={styles.bottomView}>
         <Profile />

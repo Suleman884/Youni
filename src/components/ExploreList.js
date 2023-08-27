@@ -1,79 +1,30 @@
-import React, {useState, useRef, useEffect} from 'react';
-import {
-  SafeAreaView,
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView, View, StyleSheet, Text} from 'react-native';
 import {typography} from '../styles/typography';
 import {colors} from '../styles/colors';
-import {ForYouData} from '../res/tabsData';
+import {exploreData} from '../res/tabsData';
+import HorizontalPicker from '@vseslav/react-native-horizontal-picker';
 
-export const Item = ({
-  title,
-  index,
-  setSelectedIndex,
-  selectedItem,
-  setSelectedItem,
-  itemStyle,
-}) => {
-  return (
-    <TouchableOpacity
-      style={[styles.item(selectedItem, title), itemStyle]}
-      onPress={() => {
-        setSelectedItem(title);
-        setSelectedIndex(index);
-      }}>
-      <Text style={styles.title(selectedItem, title)}>{title}</Text>
-    </TouchableOpacity>
-  );
-};
+const ExploreList = () => {
+  const [selectedItem, setSelectedItem] = useState(4);
 
-const ExploreList = ({listData, style, itemStyle}) => {
-  const scrollRef = useRef();
-  const [selectedItem, setSelectedItem] = useState('All');
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  useEffect(() => {
-    ForYouData?.forEach((_element, index) => {
-      if (index === selectedIndex) {
-        scrollRef.current.scrollToIndex({
-          animated: true,
-          index: index,
-        });
-      }
-    });
-  }, [selectedIndex, selectedItem]);
+  const rednerItem = (item, index) => {
+    return (
+      <View style={[styles.item(selectedItem), {width: null}]}>
+        <Text style={styles.title(selectedItem, item.id)}>{item.title}</Text>
+      </View>
+    );
+  };
 
   return (
-    <SafeAreaView style={[styles.container, style]}>
-      <FlatList
-        ref={scrollRef}
-        onScrollToIndexFailed={info => {
-          const wait = new Promise(resolve => setTimeout(resolve, 200));
-          wait.then(() => {
-            scrollRef.current?.scrollToIndex({
-              index: info.index,
-              animated: true,
-            });
-          });
-        }}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-        data={listData}
-        renderItem={({item, index}) => (
-          <Item
-            title={item.title}
-            index={index}
-            setSelectedIndex={setSelectedIndex}
-            selectedItem={selectedItem}
-            setSelectedItem={setSelectedItem}
-            itemStyle={itemStyle}
-          />
-        )}
-        keyExtractor={item => item.id}
-        horizontal={true}
+    <SafeAreaView style={[styles.container]}>
+      <HorizontalPicker
+        data={exploreData}
+        defaultIndex={selectedItem}
+        renderItem={rednerItem}
+        itemWidth={80}
+        onChange={index => setSelectedItem(index)}
+        animatedScrollToDefaultIndex={true}
       />
     </SafeAreaView>
   );
@@ -83,7 +34,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 5,
   },
-  item: (selectedItem, title) => {
+  item: () => {
     return {
       borderWidth: 1,
       paddingHorizontal: 8,

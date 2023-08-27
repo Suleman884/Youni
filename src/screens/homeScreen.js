@@ -33,7 +33,7 @@ const HomeScreen = () => {
         <ForYouList listData={ForYouData} setIsLoading={setIsLoading} />
       )}
       <View style={styles.shadow}>
-        <CardComponent />
+        <CardComponent setIsLoading={setIsLoading} />
       </View>
     </View>
   );
