@@ -6,11 +6,7 @@ import SearchIcon from '../svgIcons/SearchIcon';
 import MenuIcon from '../svgIcons/MenuIcon';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
-interface HeaderProps {
-  title: string;
-}
-
-const HomeHeader: React.FC<HeaderProps> = ({title}) => {
+const HomeHeader = ({title}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.textTitle}>{title}</Text>
