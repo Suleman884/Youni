@@ -17,6 +17,7 @@ export const Item = ({
   selectedItem,
   setSelectedItem,
   itemStyle,
+  setIsLoading,
 }) => {
   return (
     <TouchableOpacity
@@ -24,13 +25,14 @@ export const Item = ({
       onPress={() => {
         setSelectedItem(title);
         setSelectedIndex(index);
+        setIsLoading(true);
       }}>
       <Text style={styles.title(selectedItem, title)}>{title}</Text>
     </TouchableOpacity>
   );
 };
 
-const ForYouList = ({listData, style, itemStyle}) => {
+const ForYouList = ({listData, style, itemStyle, setIsLoading}) => {
   const scrollRef = useRef();
   const [selectedItem, setSelectedItem] = useState('All');
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -70,6 +72,7 @@ const ForYouList = ({listData, style, itemStyle}) => {
             selectedItem={selectedItem}
             setSelectedItem={setSelectedItem}
             itemStyle={itemStyle}
+            setIsLoading={setIsLoading}
           />
         )}
         keyExtractor={item => item.id}
