@@ -5,7 +5,7 @@ import {
 
 export const styleConstants = {
   INPUT_CONTAINER_ONBOARDING: hp(7),
-  PADDING_LEFT: wp(5),
-  PADDING_RIGHT: wp(5),
+  PADDING_LEFT: wp(3),
+  PADDING_RIGHT: wp(3),
   DEFAULT_VERTICAL_MARGIN: 30,
 };
