@@ -1,9 +1,7 @@
 import React from 'react';
-import Svg, {Path, SvgProps} from 'react-native-svg';
+import Svg, {Path} from 'react-native-svg';
 
-interface DisableHeartProps extends SvgProps {}
-
-export const DisableHeart: React.FC<DisableHeartProps> = props => (
+export const DisableHeart = props => (
   <Svg width={24} height={24} fill="none" {...props}>
     <Path
       stroke="#9F9F9F"

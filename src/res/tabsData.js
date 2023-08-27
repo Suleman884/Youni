@@ -44,3 +44,26 @@ export const ForYouData = [
     title: 'Dummy Data',
   },
 ];
+
+export const exploreData = [
+  {id: 1, title: 'The Art'},
+  {id: 2, title: 'Community'},
+  {id: 3, title: 'All'},
+  {id: 4, title: 'Body + Mind'},
+  {id: 5, title: 'Party'},
+];
+
+export const cardTags = [
+  {
+    id: '1',
+    title: 'Art & Music',
+  },
+  {
+    id: '2',
+    title: 'Sport',
+  },
+  {
+    id: '3',
+    title: 'Movie',
+  },
+];

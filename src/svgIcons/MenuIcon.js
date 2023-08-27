@@ -1,7 +1,7 @@
 import React from 'react';
-import Svg, {SvgProps, Path} from 'react-native-svg';
+import Svg, {Path} from 'react-native-svg';
 
-const MenuIcon: React.FC<SvgProps> = props => (
+const MenuIcon = props => (
   <Svg width={24} height={24} fill="none" {...props}>
     <Path
       stroke="#fff"

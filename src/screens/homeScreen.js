@@ -5,6 +5,9 @@ import {baseContainer} from '../styles/ViewStyles';
 import {colors} from '../styles/colors';
 import TabSwitch from '../components/TabSwitch';
 import ForYouList from '../components/ForYouList';
+import CardComponent from '../components/CardComponent';
+import {ForYouData, exploreData} from '../res/tabsData';
+import ExploreList from '../components/ExploreList';
 
 const HomeScreen = () => {
   const [isFirstTabSelected, setIsFirstTabSelected] = useState(true);
@@ -15,7 +18,12 @@ const HomeScreen = () => {
         isFirstSelected={isFirstTabSelected}
         setIsFirstTabSelected={setIsFirstTabSelected}
       />
-      <ForYouList />
+      {isFirstTabSelected ? (
+        <ExploreList listData={exploreData} />
+      ) : (
+        <ForYouList listData={ForYouData} />
+      )}
+      <CardComponent />
     </View>
   );
 };

@@ -1,13 +1,7 @@
 import React from 'react';
-import Svg, {G, Path, SvgProps} from 'react-native-svg';
+import Svg, {G, Path} from 'react-native-svg';
 
-const SearchIcon: React.FC<SvgProps> = ({
-  width = 24,
-  height = 24,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  fill = 'none',
-  ...props
-}) => (
+const SearchIcon = ({width = 24, height = 24, fill = 'none', ...props}) => (
   <Svg
     width={width}
     height={height}

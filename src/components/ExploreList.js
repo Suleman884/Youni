@@ -30,7 +30,7 @@ export const Item = ({
   );
 };
 
-const ForYouList = ({listData, style, itemStyle}) => {
+const ExploreList = ({listData, style, itemStyle}) => {
   const scrollRef = useRef();
   const [selectedItem, setSelectedItem] = useState('All');
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -86,21 +86,20 @@ const styles = StyleSheet.create({
   item: (selectedItem, title) => {
     return {
       borderWidth: 1,
-      paddingHorizontal: 15,
+      paddingHorizontal: 8,
       paddingVertical: 6,
       marginVertical: 8,
       marginHorizontal: 4,
-      borderColor: colors.placeholder,
-      borderRadius: 20,
-      backgroundColor: selectedItem === title ? colors.white : null,
     };
   },
   title: (selectedItem, title) => {
     return {
       ...typography.text16,
-      color: selectedItem === title ? colors.black : colors.placeholder,
+      color: selectedItem === title ? colors.white : colors.placeholder,
+      fontSize: selectedItem === title ? 20 : 12,
+      fontWeight: selectedItem === title ? '700' : '400',
     };
   },
 });
 
-export default ForYouList;
+export default ExploreList;
