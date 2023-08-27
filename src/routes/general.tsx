@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import HomeScreen from '../screens/homeScreen';
 import {StackNavigationOptions} from '@react-navigation/stack/lib/typescript/src/types';
+import HomeTabs from '../screens/HomeTabs';
 
 type AppStackParamList = {
   HomeScreen: undefined;
@@ -18,7 +18,7 @@ const GeneralAppStack: React.FC<GeneralAppStackProps> = ({screenOptions}) => {
     <AppStack.Navigator
       initialRouteName={'HomeScreen'}
       screenOptions={{headerShown: false, ...screenOptions}}>
-      <AppStack.Screen name="HomeScreen" component={HomeScreen} />
+      <AppStack.Screen name="HomeScreen" component={HomeTabs} />
     </AppStack.Navigator>
   );
 };
